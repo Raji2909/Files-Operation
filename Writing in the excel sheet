@@ -1,0 +1,70 @@
+package org.test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ExcelA {
+		public static void main(String[] args) throws Exception {
+            File f = new File ("C:\\Users\\Lenovo\\eclipse-workspace\\Excel\\ExcelSheet\\Book1.xlsx");
+			FileInputStream fin = new FileInputStream (f);
+			Workbook w = new XSSFWorkbook(fin);
+			Sheet createSheet = w.createSheet("Sheet1");
+			Row row = createSheet.createRow(0);
+			Row row1 = createSheet.createRow(1);
+			Row row2 = createSheet.createRow(2);
+			Row row3 = createSheet.createRow(3);
+			Row row4 = createSheet.createRow(4);
+			
+			Cell cell = row.createCell(0);
+			Cell cell1 = row.createCell(1);
+			Cell cell2 = row.createCell(2);
+			
+			Cell c = row1.createCell(0);
+			Cell c1= row1.createCell(1);
+			Cell c2= row1.createCell(2);
+			
+			Cell a= row2.createCell(0);
+			Cell a1 = row2.createCell(1);
+			Cell a2 = row2.createCell(2);
+			
+			Cell b = row3.createCell(0);
+			Cell b1 = row3.createCell(1);
+			Cell b2 = row3.createCell(2);
+			
+			Cell d = row4.createCell(0);
+			Cell d1 = row4.createCell(1);
+			Cell d2 = row4.createCell(2);
+
+			cell.setCellValue("Name");
+			cell1.setCellValue("Age");
+			cell2.setCellValue("Email");
+			
+			c.setCellValue("John Doe");
+			c1.setCellValue(30);
+			c2.setCellValue("john@test.com");
+			
+			a.setCellValue("Jane Doe");
+			a1.setCellValue(28);
+			a2.setCellValue("john@test.com");
+			
+			b.setCellValue("Bob Smith");
+			b1.setCellValue(35);
+			b2.setCellValue("jacky@example.com");
+			
+			d.setCellValue("Swapnil");
+			d1.setCellValue(37);
+			d2.setCellValue("swapnil@example.com");
+
+			FileOutputStream fout = new FileOutputStream(f);
+
+			w.write(fout);
+			
+			System.out.println("Writing in Excel is Done");
+		}
+}
